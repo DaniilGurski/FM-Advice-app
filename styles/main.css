@@ -1,0 +1,164 @@
+:root {
+    --clr-primary-100: hsl(193, 38%, 86%);
+    --clr-primary-200: hsl(150, 100%, 66%);
+
+    --clr-neutral-100: hsl(217, 19%, 38%);
+    --clr-neutral-200: hsl(217, 19%, 24%);
+    --clr-neutral-300: hsl(218, 23%, 16%);
+
+    --ff-primary: 'Manrope', sans-serif;
+
+    --fw-extra-bold: 800;
+
+    --fs-100: 1.3rem;
+    --fs-200: 1.5rem; 
+
+    --box-shadow-100: hsl(218, 23%, 14%);
+}
+
+
+.page {
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-extra-bold);
+    font-size: var(--fs-100);
+}
+
+
+.page__body {
+    background-color: var(--clr-neutral-300);
+
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr;
+}
+
+
+.advice-wrapper {
+    width: 50%;
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: var(--clr-neutral-200);
+    box-shadow: 0px 8px 10px 0px var(--box-shadow-100);
+    border-radius: 0.5rem;
+
+    padding: 2rem;
+    padding-bottom: 3rem;
+
+    position: relative;
+}
+
+
+.advice-indicator {
+    color: var(--clr-primary-200);
+}
+
+
+.advice-text {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    font-size: var(--fs-200);
+    color: var(--clr-primary-100);
+    text-align: center;
+
+    position: relative;
+    bottom: -20px;
+    opacity: 0;
+}
+
+
+.line-seperator {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    color: var(--clr-primary-100);
+}
+
+
+.line-seperator-marker {
+    display: flex;
+    gap: 0.4rem;
+
+    background-color: var(--clr-neutral-200);
+    z-index: 0;
+
+    padding: 0.5rem;
+}
+
+
+.line-seperator-marker__column {
+    width: 8px;
+    height: 20px;
+
+    background-color: currentColor;
+    border-radius: 40%;
+}
+
+
+/* line */
+.line-seperator::before {
+    content: "";
+
+    width: 100%;
+    height: 1.2px;
+
+    background-color: var(--clr-neutral-100);
+
+    position: absolute;
+    bottom: 50%;
+}
+
+
+.randomize-button {
+    background-color: var(--clr-primary-200);
+    border: none;
+    border-radius: 50%;
+
+    padding: 1.2rem;
+    
+    position: absolute;
+    top: 100%;
+    transform: translateY(-50%);
+
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 0px transparent;
+    transition: box-shadow .8s ease-out;
+}
+
+
+.randomize-button:hover {
+    box-shadow: 0px 0px 70px 5px var(--clr-primary-200);
+}
+
+
+.randomize-button[disabled] {
+    cursor: not-allowed;
+}
+
+
+.play-fade-in {
+    animation: .5s ease-in-out 0s running fade-in;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        bottom: -20px;
+    }
+
+    to {
+        opacity: 1;
+        bottom: 0;
+    }
+}
